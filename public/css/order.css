@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/*-----------------HEADER CSS-------------- */
+header{
+	background-color: #1abc9c  ;
+	width: 100%;
+	height: 70px;
+	position: fixed;
+	z-index: 999;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 150px;
+}
+
+.logo_admin{
+	text-decoration: none;
+	color: #FFDB51;
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 2em;
+}
+
+.cust_data a{
+	text-decoration: none;
+	color: #ebefee;
+	font-weight: 300;
+	font-size: 1.1em;
+	padding-left: 30px;
+}
+
+.cust_data a:hover{
+	color: #FFDB51;
+}
+/*--------------------end of header css---------------------------*/
+
+section{
+    width: 70%;
+    height: auto;
+
+    margin: 10px;
+    margin-left: 300px;
+    margin-top: 10px;
+    padding-left: 10px;
+    float: left;
+    background-color:#ffffff;
+
+    border-radius: 5px;
+}
+
+
+input{
+    margin: 5px;
+}
+
+label{
+    margin: 10px 0px;
+    padding-top: 5px;
+    color: #163f26;
+    width: 220px;
+    display: inline-block;
+}
+
+
+#text_of_dot{ /*restrecting the size of labels of id=text_of_dot*/
+    width: 70px;
+}
+
+
+.name{
+    padding: 7px;
+}
+
+.container{   /*to make check boxes set horizontally*/
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.container .option_item{    /*make the vicinity inwhich checkbox is assembled*/
+    display: block;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 5px;
+}
+
+.option_item .option_inner{   /*the space inside that vicinity*/
+    width: 100%;
+    height: 100%;
+    background: #ebefee;
+    text-align: center;
+    color: #00a63f;
+    display: block;
+    border: 3px solid transparent; /* making border yet not visible*/
+    position: relative;
+}
+
+.option_item .checkbox{    /*putting the actual checkbox within the space of the vicinity*/
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    z-index: 1;
+    opacity: 0;
+}
+
+.option_item .checkbox:checked ~ .option_inner{ /*when clecking on the box (the box=the space inside the vicinity) its borders will tern green*/
+    border-color: #00a63f;
+}
+
+
+
+#one{ /* shaping size_input box*/
+    margin: 0px;
+    padding: 0px;
+    padding-left: 20px;
+    width: 110px;
+    height: 35px;
+}
+#o{ /* shaping quantity_input box*/
+    margin: 0px;
+    padding: 0px;
+    width: 110px;
+    height: 35px;
+}
+
+
+.main-btn{
+	color: #fff;
+	background-color:#163f26;
+	text-decoration: none;
+	font-size: 1.1em;
+	font-weight: 600;
+	display: inline-block;
+	padding: 0.9375em 2.1875em;
+    margin-bottom: 5px;
+    margin-left: 5px;
+	border-radius: 3px;
+	letter-spacing: 1px;
+	transition: 0.7s ease;
+}
+
+.main-btn:hover{
+	background-color: #00a63f;
+	transform: scale(1.1,1.1);
+}
+
+aside{
+    width: 24%;
+    float: right;
+    margin-top: 70px;
+}
+
+aside .main-btn{
+    font-size: 0.9em;
+    padding: 5px;
+    letter-spacing: 0px;
+}
+
+.aside-div{
+    border-radius: 5px;
+    background-color: aqua;
+    position: fixed;
+    padding: 5px;
+    margin-top: -404px;
+}
+
+
+/******************************/
+
+
+.file-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 90px;
+    background: #ebefee ;
+}
+
+::selection{
+    color: #fff;
+    background: #1abc9c ;
+}
+.wrapper{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 7px 7px 12px rgba(0,0,0,0.05);
+}
+
+.wrapper form{
+    height: 167px;
+    display: flex;
+    cursor: pointer;
+    margin: 30px 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 2px dashed #1abc9c ;
+}
+form :where(i, p){
+    color: #1abc9c ;
+}
+form i{
+    font-size: 50px;
+}
+
+form p{
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.wrapper section .row{
+    margin-bottom: 10px;
+    background: #E9F0FF;
+    list-style: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+section .row i{
+    color: #1abc9c ;
+    font-size: 30px;
+}
+
+section .details span{
+    font-size: 14px;
+}
+.progress-area .row .content{
+    width: 100%;
+    margin-left: 15px;
+}
+.progress-area .details{
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    justify-content: space-between;
+}
+.progress-area .content .progress-bar{
+    height: 6px;
+    width: 100%;
+    margin-bottom: 4px;
+    background: #fff;
+    border-radius: 30px;
+}
+.content .progress-bar .progress{
+    height: 100%;
+    width: 0%;
+    background: #1abc9c;
+    border-radius: inherit;
+}
+.uploaded-area{
+    max-height: 232px;
+    overflow-y: scroll;
+}
+.uploaded-area.onprogress{
+    max-height: 150px;
+}
+.uploaded-area::-webkit-scrollbar{
+    width: 0px;
+}
+.uploaded-area .row .content{
+    display: flex;
+    align-items: center;
+}
+.uploaded-area .row .details{
+    display: flex;
+    margin-left: 15px;
+    flex-direction: column;
+}
+.uploaded-area .row .details .size{
+    color: #404040;
+    font-size: 11px;
+}
+.uploaded-area i.fa-check{
+    font-size: 16px;
+}
+/*************************FOOTER********************************************/
+footer{
+    padding: 0px 50px;
+    background-color: rgb(169, 172, 175);
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+
+.footer-about-us span {
+    font-weight: 800;
+    font-size: 2em;
+    color: #1abc9c;
+}
+.footer-about-us h4 {
+    font-weight: 200;
+}
+.footer-about-us p{
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.footer-social a {
+    background: none repeat scroll 0 0 #1abc9c;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    text-align: center;
+    width: 40px;border: 1px solid #1abc9c;
+}
+
+.footer-social a:hover {
+    background-color: #222;
+    border-color: #666
+}
+
+.footer-social {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-top-area {
+    color: whitesmoke;
+    padding: 35px 0 ;}
+
+
+.footer-menu ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.footer-menu{
+    margin-bottom: 10px;
+}
+/*css dash line in css */
+.footer-menu ul li {
+    padding: 4px 0;
+}
+/*links of user navigtion */
+.footer-menu a {
+    display: block;
+    padding: 0px 0;color: whitesmoke;
+    text-decoration: none;
+}
+.footer-menu a:hover{
+    text-decoration: underline;
+}
+.footer-top-area .zigzag-bottom{
+    background: #000}
+
+.footer-wid-title{
+    color: #1abc9c;
+}

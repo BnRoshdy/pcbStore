@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{ /*this is to set new default*/
+	font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+/******************HEADER CSS********************/
+
+body{
+	background: url(image/backgroung.jpg) no-repeat;
+	background-size: cover;
+}
+
+header{
+	background-color: #1abc9c  ;
+	width: 100%;
+	height: 70px;
+	position: fixed;
+	z-index: 999;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 150px;
+}
+
+.logo_admin{
+	text-decoration: none;
+	color: #FFDB51;
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 2em;
+}
+
+.cust_data a{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 300;
+	font-size: 1.1em;
+	padding-left: 30px;
+}
+
+.cust_data a:hover{
+	color: #FFDB51;
+}
+
+
+/******************	SLIDES PART***********************/
+
+section{
+	position: relative;
+	height: 400px;
+}
+
+.slidershow{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding-top: 70px;
+}
+
+.navigation{
+	position: relative;
+	bottom: 35px;
+	left: 45%;
+	display: flex;
+}
+
+/*******ORDER BUTTON INSIDE SLIDE PART*****************/
+.navigation .btn{
+	position: absolute;
+	bottom: 40px;
+	background: none repeat scroll 0 0 #1abc9c;
+	border: 1px solid #1abc9c;
+	display: inline-block;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+.navigation button {
+	background-color: #1abc9c;
+	border-radius: 5px;
+	transition: 0.7s ease;
+
+}
+
+.navigation .order-btn{
+	text-decoration: none;
+	padding: 20px;
+	color: #fff;
+}
+
+
+.navigation a:hover{
+	color: #FFDB51;
+}
+
+.navigation button:hover{
+	transform: scale(1.1,1.1);
+}
+
+
+
+/**********************************/
+
+.bar{
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	border: 2px solid #fff;
+	margin: 10px;
+	cursor: pointer;
+	transition: 0.4s;
+}
+.bar:hover{
+	background: #fff;
+}
+
+input[name="r"]{
+	position: absolute;
+	visibility: hidden;
+}
+
+.slides{
+	width: 500%;
+	height: 100%;
+	bottom: 100px;
+	display: flex;
+}
+
+.slide{
+
+	width: 20%;
+	transition: 0.6s;
+
+}
+
+.slide img{
+	width: 100%;
+	height: 100%;
+	box-shadow: 1px 2px 10px #1abc9c;
+}
+
+#r1:checked ~ .s1{ /*those are for images to shift left*/
+	margin-left: 0;
+}
+
+#r2:checked ~ .s1{
+	margin-left: -20%;
+}
+
+#r3:checked ~ .s1{
+	margin-left: -40%;
+}
+
+#r4:checked ~ .s1{
+	margin-left: -60%;
+}
+
+#r5:checked ~ .s1{
+	margin-left: -80%;
+}
+
+
+/**********************************************/
+.sec-2{ /******to resize the height of the sec-2 section**********/
+	height: 300px;
+}
+
+
+section .d-one{  /*******to position it at left with in sec-2 section***********/
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 45%;
+}
+
+.d-insides{  /****creat a space with in this div + aligning img and text inside it using display flex*****/
+	width: 100%;
+	height: 100%;
+	display: flex;
+	padding: 20px;
+
+}
+
+.content{
+	padding: 20px;
+}
+
+.content h1{
+	color: #1abc9c;
+}
+.contentx{
+	margin-top : 10px;
+      margin-left : 60px;
+}
+
+.contentx h1{
+	color: #1abc9c;
+}
+section .d-two{    /*******to position it at right with in sec-2 section***********/
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 45%;
+}
+
+
+section .d-two{    /*******to position it at right with in sec-2 section***********/
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 45%;
+}
+
+
+
+
+footer{
+	padding: 0px 50px;
+	background-color: rgb(169, 172, 175);
+	position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+
+.footer-about-us span {
+    font-weight: 800;
+    font-size: 2em;
+    color: #1abc9c;
+}
+.footer-about-us h4 {
+    font-weight: 200;
+}
+.footer-about-us p{
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.footer-social a {
+    background: none repeat scroll 0 0 #1abc9c;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    text-align: center;
+    width: 40px;border: 1px solid #1abc9c;
+}
+
+.footer-social a:hover {
+    background-color: #222;
+    border-color: #666
+}
+
+.footer-social {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-top-area {
+color: whitesmoke;
+padding: 35px 0 ;}
+
+
+.footer-menu ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.footer-menu{
+    margin-bottom: 10px;
+}
+/*css dash line in css */
+.footer-menu ul li {
+    padding: 4px 0;
+}
+/*links of user navigtion */
+.footer-menu a {
+    display: block;
+    padding: 0px 0;color: whitesmoke;
+    text-decoration: none;
+}
+.footer-menu a:hover{
+    text-decoration: underline;
+}
+.footer-top-area .zigzag-bottom{
+    background: #000}
+
+.footer-wid-title{
+    color: #1abc9c;
+}

@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{ /*this is to set new default*/
+	font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color:#ebefee;
+}
+
+/*-----------body--------*/
+header{
+	background-color: #1abc9c  ;
+	width: 100%;
+	height: 70px;
+	/*position: fixed;*/
+    margin-top: 0%;
+	z-index: 999;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 150px;
+}
+
+.logo_admin{
+	text-decoration: none;
+	color: #FFDB51;
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 2em;
+}
+
+.cust_data a{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 300;
+	font-size: 1.1em;
+	padding-left: 30px;
+}
+
+.cust_data a:hover{
+	color: #FFDB51;
+}
+/*--------------------------*/
+
+
+/*-------------content-----------*/
+
+.flex{
+    display: flex;
+    width: 900px;
+    padding: 10px 20px;
+    margin: 20px auto;
+    background-color: white;
+    flex-flow: wrap;
+    margin-top: 30px;
+    border-radius: 12px;
+}
+.flex h2{
+    display: flex;
+    width: 100%;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+.flex div{
+    padding: 7px;
+}
+
+.create,.sign_up{
+    margin: 10px;
+    width: 400px;
+
+}
+
+form label{
+    display: flex;
+    font-size: 14px;
+    margin: 3px;
+}
+.create h3{
+    font-size: 16px;
+    text-transform:capitalize;
+}
+form input{
+    width: 350px;
+    height: auto;
+    padding: 7px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 6px;
+    outline: none;
+}
+.create input[type="submit"]{
+    /* margin-left:70px; */
+    background-color: #c9a621;
+    margin: 10px 0px 10px 70px;
+}
+.sign_up input[type="submit"]{
+    margin-left: 125px;
+    background-color: #216c5eef;
+}
+
+input[type="submit"]{
+    align-self: center;
+    width: 150px;
+    height: 35px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+input[type="submit"]:hover{
+    background-color: aliceblue;
+    color: #216c5eef;
+}
+
+input[type="checkbox"]{
+    width:auto;
+    align-self: center;
+}
+select{
+    margin-left:50px;
+}
+.check{
+    display: flex;
+}
+
+form a{
+    font-size: 13px;
+    align-self: center;
+    margin-left: 80px;
+}
+
+.pr{
+    font-size: 13px;
+    margin-left:20px ;
+}
+
+
+
+
+/********************footer********************/
+
+
+/********************footer********************/
+
+
+footer{
+	padding: 0px 50px;
+	background-color: rgb(169, 172, 175);
+	position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+
+.footer-about-us span {
+    font-weight: 800;
+    font-size: 2em;
+    color: #1abc9c;
+}
+.footer-about-us h4 {
+    font-weight: 200;
+}
+.footer-about-us p{
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.footer-social a {
+    background: none repeat scroll 0 0 #1abc9c;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    height: 40px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-top: 5px;
+    text-align: center;
+    width: 40px;border: 1px solid #1abc9c;
+}
+
+.footer-social a:hover {
+    background-color: #222;
+    border-color: #666
+}
+
+.footer-social {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-top-area {
+color: whitesmoke;
+padding: 35px 0 ;}
+
+
+.footer-menu ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.footer-menu{
+    margin-bottom: 10px;
+}
+/*css dash line in css */
+.footer-menu ul li {
+    padding: 4px 0;
+}
+/*links of user navigtion */
+.footer-menu a {
+    display: block;
+    padding: 0px 0;color: whitesmoke;
+    text-decoration: none;
+}
+.footer-menu a:hover{
+    text-decoration: underline;
+}
+.footer-top-area .zigzag-bottom{
+    background: #000}
+
+.footer-wid-title{
+    color: #1abc9c;
+}
