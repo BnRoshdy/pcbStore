@@ -20,7 +20,6 @@
 <section>
     <div>
 
-
         <table>
             <tr>
 
