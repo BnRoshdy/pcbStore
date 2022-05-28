@@ -19,9 +19,18 @@
     z-index: 1;
 }
 
-.logo h2 {
+.logo h2 a{
     color: #FFDB51;
+    text-decoration: none;
 
+}
+.cust_data a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.1em;
+    padding-left: 30px;
+    float: right;
 }
 
 .fa-bell {
@@ -59,14 +68,25 @@
     overflow-x: hidden;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.02);
     z-index: 2;
+    left: 0;
 }
 
 .sidebar ul{
     margin-top: 20px;
 }
-
+.sidebar ul li.x1{
+    background: #1abc9c;
+}
+.sidebar ul li.x1 a{
+    width: 100%;
+    text-decoration: none;
+    color: #FFFFff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
 .sidebar ul li{
-    width: 100%; 
+    width: 100%;
     list-style: none;
 }
 
@@ -88,7 +108,7 @@
 }
 
 .sidebar ul li a i{
-    
+
     min-width: 60px;
     font-size: 24px;
     text-align: center;
@@ -176,7 +196,7 @@
 
 .main table, th, td {
     border: 1px solid;
-    margin: 20px;
+    margin-left: 65px;
 }
 
 .main th, td {
@@ -190,7 +210,7 @@
 .main input[type="submit"]{
     align-self: center;
     width: 120px;
-    height: 40px;  
+    height: 40px;
     border: none;
     background-color: #1abc9c;
     color: white;
@@ -208,12 +228,13 @@
 .main input[type="int"]{
     width: 200px;
     height: 30px;
-    border-radius: 6px; 
+    border-radius: 6px;
     border: 1px solid #ccc;
     margin: 20px 0;
 }
 .main form {
     padding: 10px;
+    height: 90px;
     margin: 10px;
     color: #299863;
     margin-right: 20%;
@@ -222,7 +243,11 @@
 .main .styled{
     float: right;
 }
-
+.favorite{
+    position: relative;
+    left: 75%;
+    bottom: 75px;
+}
 
 
 

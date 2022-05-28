@@ -99,28 +99,6 @@
 
 </section>
 
-<footer><!---------------------footer------------------------->
-    <div class="footer-top-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="footer-about-us">
-                <h4><span>about us</span></h4>
-                <p>In our company we insur best quality
-                    of products and before that our service to all customars, giving you a fine
-                    experience through our site, providing most if not all of what can be.</p>
 
-            </div>
-        </div>
-            <h4 class="footer-wid-title">Help Center</h4>
-            <ul>
-            <li>Mobile Phone : 01002208821 </li>
-            </ul>
-        </div>
-        </div>
-        </div>
-
-    </footer>
 </body>
 </html>

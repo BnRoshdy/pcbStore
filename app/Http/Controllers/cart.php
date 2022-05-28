@@ -9,9 +9,15 @@ class cart extends Controller
 {
     public function getdata()
     {
-        $data = Order::where('userid', Auth::user()->id)->get();
+        if(Auth::check()) {
 
-        return view('cart', ['data' => $data]);
+
+            $data = Order::where('userid', Auth::user()->id)->get();
+
+            return view('cart', ['data' => $data]);
+        }
+        else
+            return redirect('/login');
     }
     public function editOrder(Request $request)
     {

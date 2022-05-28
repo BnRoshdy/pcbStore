@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin order</title>
-    <link rel="stylesheet" href="{{url('css/ORDERR1css.css')}}">
+    <link rel="stylesheet" href="{{url('css/x.css')}}">
     <script src="https://kit.fontawesome.com/2924b03037.js" crossorigin="anonymous"></script>
 
 </head>
@@ -14,44 +14,51 @@
     <!-- ---------------------header----------------------- -->
         <div class="topbar">
             <div class="logo">
-                <h2>BCPWAY</h2>
+                <h2><a href="/">MYPCB</a> </h2>
             </div>
-            <div class="user">
-                <a href="/">home page</a>
-            </div>
+            <div class="cust_data">
+                <a href="{{route('admin.logout')}}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">logout</a>
+                <form id="logout-form" action="{{route('admin.logout')}}" method = "POST" >
+                    @csrf
+                </form>
+
         </div>
     <!-- -------------------------header-------------------------     -->
     <div class="main">
-        <form class="form0" method="POST" action="/admin-order">
+        <form class="form0" method="POST" action="{{route('admin.order')}}">
             @csrf
-            price:
-            <input type="int" name="price" size="20" id="price">
+            copper price :
+            <input type="int" name="copperprice" size="20" value="  {{$cprice}}">
+            stensil price :
+            <input type="int" name="stensilprice" size="20" value="  {{$sprice}}">
             <input class="favorite"
             type="submit"
             name="submit"
-            value="save">
+            value="Save">
 
             <input class="styled"
             type="submit"
             name="submit"
-            value="edit">
+            value="Edit">
 
             <input class="styled"
             type="submit"
             name="submit"
-            value="delete">
+            value="Delete">
 
-
+            <input class="styled"
+                   type="submit"
+                   name="submit"
+                   value="Add">
         <table>
             <tr>
             <th></th>
             <th>Id</th>
             <th>User_id</th>
-{{--            <th>Size</th>--}}
-                <th>Sizex</th>
-                <th>Sizey</th>
-
-                <th>Desgin_num</th>
+            <th>Sizex</th>
+            <th>Sizey</th>
+            <th>Desgin_num</th>
             <th>Quantity</th>
             <th>Layers</th>
             <th>Min_track</th>
@@ -61,8 +68,9 @@
             <th>Stensil</th>
             <th>Price</th>
             <th>Status</th>
-            <th>Created_at</th>
-            <th>Update_at</th>
+            <th>file_name</th>
+            <th>Created_at_mon</th>
+            <th>Created_at_year</th>
 
             </tr>
 
@@ -78,11 +86,9 @@
             </td>
             <td>{{$a ->id}}</td>
             <td>{{$a ->userid}}</td>
-{{--            <td>{{$a ->size}}</td>--}}
-                    <td>{{$a ->sizex}}</td>
-                    <td>{{$a ->sizey}}</td>
-
-                    <td>{{$a ->design_num}}</td>
+            <td>{{$a ->sizex}}</td>
+            <td>{{$a ->sizey}}</td>
+            <td>{{$a ->design_num}}</td>
             <td>{{$a ->quantity}}</td>
             <td>{{$a ->layers}} </td>
             <td>{{$a ->min_track}}</td>
@@ -92,8 +98,9 @@
             <td>{{$a ->stensil}}</td>
             <td>{{$a ->price}}</td>
             <td>{{$a ->status}}</td>
-            <td>{{$a ->Created_at}}</td>
-            <td>{{$a ->Update_at}}</td>
+            <td>{{$a ->file_name}}</td>
+            <td>{{$a ->created_at_mon}}</td>
+            <td>{{$a ->created_at_year}}</td>
 
             </tr>
             @endforeach
@@ -108,25 +115,25 @@
         <div class="sidebar">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="{{route('admin.status')}}">
                         <i class="fas fa-chart-bar"></i>
                         <div>Status</div>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li class="x1">
+                    <a >
                         <i class="fas fa-th-large"></i>
                         <div>Orders</div>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('admin.ashipment')}}">
                         <i class="fas fa-hand-holding-usd"></i>
                         <div>Shipment</div>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('admin.promocode')}}">
                         <i class="fas fa-dollar-sign"></i>
                         <div>PromoCode</div>
                     </a>

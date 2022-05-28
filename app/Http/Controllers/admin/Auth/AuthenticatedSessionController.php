@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+use App\Actions\Fortify\Admin\AttemptToAuthenticate;
+use App\Actions\Fortify\Admin\RedirectIfTwoFactorAuthenticatable;
+use App\Http\Responses\Admin\LoginResponse;
+use App\Http\Responses\Admin\LogoutResponse;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Pipeline;
-use Laravel\Fortify\Actions\AttemptToAuthenticate;
 use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
 use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
-use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
-use Laravel\Fortify\Contracts\LoginResponse;
 use Laravel\Fortify\Contracts\LoginViewResponse;
-use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Http\Requests\LoginRequest;
@@ -35,7 +35,10 @@ class AuthenticatedSessionController extends Controller
     public function __construct(StatefulGuard $guard)
     {
         $this->guard = $guard;
-        //dd($this->guard);
+
+       Fortify::loginView(function () {
+            return view('admin.auth.login');
+        });
     }
 
     /**
@@ -100,9 +103,9 @@ class AuthenticatedSessionController extends Controller
     {
         $this->guard->logout();
 
-        $request->session()->invalidate();
+        // $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+        // $request->session()->regenerateToken();
 
         return app(LogoutResponse::class);
     }

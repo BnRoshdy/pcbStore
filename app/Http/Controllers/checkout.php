@@ -20,10 +20,11 @@ class checkout extends Controller
         $Shipment = new Shipment();
         $Shipment-> userid = Auth::user()->id;
         $pcbid =  session::get('id');
-      $Shipment-> pcbid = $pcbid ;
+        $Shipment-> pcbid = $pcbid ;
         $Shipment-> name = $request->input('name');
         $Shipment-> address = $request->input('address');
         $Shipment-> num = $request->input('num');
+        $Shipment->tracking_num = 'null';
         $Shipment-> status = "not shiped";
         $order = new Order();
         Order::where('id', $pcbid )->update(array('status' => 'confirmed'));

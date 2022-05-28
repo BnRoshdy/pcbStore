@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url('css/order.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+    <title>Make Order</title>
+</head>
+<script type="text/javascript">
+    @foreach($data as $s)
+    setInterval(function(){
+        document.getElementById('l'+{{$s->layers}}).checked=true;
+        document.getElementById('n'+{{$s->design_num}}).checked=true;
+        document.getElementById('s'+{{$s->silkscreen}}).checked=true;
+        document.getElementById('h'+{{$s->min_hole_size}}).checked=true;
+        document.getElementById({{$s->min_track}}).checked=true;
+        document.getElementById({{$s->solder_mask}}).checked=true;
+        document.getElementById({{$s->stensil}}).checked=true;
+    });
+    @endforeach
+</script>
+    <body>
+
+    <header> <!----------------------HEADER------------------------>
+        <a href="/" class="logo_admin">MYPCB</a>
+        <div class="cust_data">
+            <a href="/cart">My Cart</a>
+        </div>
+    </header><!---------------------------------------------------->
+    <section>
+        <form action="/edit-order" method="POST" enctype="multipart/form-data">
+            @csrf
+            <section class="progress-area"></section>
+            <section class="uploaded-area"></section>
+            <section class="uploaded-area"></section>
+            <section class="uploaded-area"></section>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-15 offset-md-3">
+                        <div class="card">
+                            <div class="card-header" align="center">
+                                File Upload
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+
+                                    <label for="file" align="center">Upload File</label>
+                                    <input type="file" class="form-control" name="file" id="file" required/>
+                                    <section class="progress-area"></section>
+                                    <section class="uploaded-area"></section>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container" id="checkbox"> <!--first checkbox element-->
+                <label for="checkbox">Different Design in Panel:</label>
+                <label class="option_item">
+                    <input type="radio" name="design_num" class="checkbox" value="1" id="n1" required>
+                        <div class="option_inner">
+                            <div class="tickmark"></div>
+                            <div class="name">1</div>
+                        </div>
+                </label>
+                <label class="option_item">
+                    <input type="radio" name="design_num" class="checkbox" value="2" id="n2"required>
+                        <div class="option_inner">
+                            <div class="tickmark"></div>
+                            <div class="name">2</div>
+                        </div>
+                </label>
+                <label class="option_item">
+                    <input type="radio" name="design_num" class="checkbox" value="3" id="n3"required>
+                        <div class="option_inner">
+                            <div class="tickmark"></div>
+                            <div class="name">3</div>
+                        </div>
+                </label>
+                <label class="option_item">
+                    <input type="radio" name="design_num" class="checkbox" value="4" id="n4"required>
+                        <div class="option_inner">
+                            <div class="tickmark"></div>
+                            <div class="name">4</div>
+                        </div>
+                </label>
+                <label class="option_item">
+                    <input type="radio" name="design_num" class="checkbox" value="5" id="n5"required>
+                        <div class="option_inner">
+                            <div class="tickmark"></div>
+                            <div class="name">5</div>
+                        </div>
+                </label>
+                <label class="option_item">
+                    <input type="radio" name="design_num" class="checkbox" value="6" id="n6"required>
+                        <div class="option_inner">
+                            <div class="tickmark"></div>
+                            <div class="name">6</div>
+                        </div>
+                </label>
+            </div>
+            <!--SIZE ELEMENT-->
+            <label for="one">Size (single):</label>
+            <input type="number" name ="sizex" id="size" placeholder="x in cm" required>
+                <input type="number" name ="sizey" id="size" placeholder="y in cm"required><br>
+
+                    <!--QUANTITY ELEMENT-->
+                    <label for="o">Quantity (single):</label>
+                    <input type="number" name ="quantity" id="quantity" required><br>
+
+                        <!--LAYERS ELEMENT-->
+                        <div class="container" id="checkbox">
+                            <label for="checkbox">Layers:</label>
+                            <label class="option_item" >
+                                <input type="radio" name="layers" id="l1" class="checkbox" value="1" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name"><h24>1 layer</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="layers" id="l2" class="checkbox" value="2" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">2 layers</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="layers" id="l4" class="checkbox" value="4" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">4 Layers</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="layers" id="l6" class="checkbox" value="6" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">6 Layers</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="layers" id="l8" class="checkbox" value="8" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">8 Layers</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="layers" id="l10" class="checkbox" value="10" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">10 Layers</div>
+                                    </div>
+                            </label>
+                        </div>
+
+                        <div class="container" id="checkbox">
+                            <label for="checkbox">Min Track/Spacing:</label>
+                            <label class="option_item">
+                                <input type="radio" name="min_track" id="4/4mil" class="checkbox" value="4/4mil" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">4/4mil</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_track" id="5/5mil" class="checkbox" value="5/5mil" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">5/5mil</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_track" id="6/6mil" class="checkbox" value="6/6mil" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">6/6mil</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_track" id="8/8" class="checkbox" value="8/8" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">8/8</div>
+                                    </div>
+                            </label>
+                        </div>
+                        <div class="container" id="checkbox">
+                            <label for="checkbox">Min Hole Size:</label>
+                            <label class="option_item">
+                                <input type="radio" name="min_hole_size" id="h.2" class="checkbox" value=".2" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">0.2mm</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_hole_size" id="h.25" class="checkbox" value=".25" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">0.25mm</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_hole_size" id="h.3" class="checkbox" value=".3" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">0.3mm</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_hole_size" id="h.8" class="checkbox" value=".8" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">0.8mm</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_hole_size" id="h1" class="checkbox" value="1" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">1.0mm</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="min_hole_size" id="hnull" class="checkbox" value="null" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">No Drill</div>
+                                    </div>
+                            </label>
+                        </div>
+
+                        <div class="container" id="checkbox">
+                            <label for="checkbox">Solder Mask:</label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="green" class="checkbox" value="green" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Green</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="red" class="checkbox" value="red" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Red</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="yellow" class="checkbox" value="yellow" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Yellow</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="blue" class="checkbox" value="blue" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Blue</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="white" class="checkbox" value="white" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">White</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="black" class="checkbox" value="black" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Black</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="purple" class="checkbox" value="purple" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Purple</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="matte black" class="checkbox" value="matte black" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Matte Black</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="solder_mask" id="null" class="checkbox" value="null" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">None</div>
+                                    </div>
+                            </label>
+                        </div>
+
+                        <div class="container" id="checkbox">
+                            <label for="checkbox">Silkscreen:</label>
+                            <label class="option_item">
+                                <input type="radio" name="silkscreen" id="swhite" class="checkbox" value="white" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">White</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="silkscreen" id="sblack" class="checkbox" value="black" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">Black</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="silkscreen" id="snull" class="checkbox" value="null" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">None</div>
+                                    </div>
+                            </label>
+                        </div>
+
+                        <div class="container" id="checkbox">
+                            <label for="checkbox">Stencil:</label>
+                            <label class="option_item">
+                                <input type="radio" name="stensil" id="yes" class="checkbox" value="yes" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">yes</div>
+                                    </div>
+                            </label>
+                            <label class="option_item">
+                                <input type="radio" name="stensil" id="no" class="checkbox" value="no" required>
+                                    <div class="option_inner">
+                                        <div class="tickmark"></div>
+                                        <div class="name">no</div>
+                                    </div>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">add to cart</button>
+
+        </form>
+    </section>
+    </body>
+    </html>
+

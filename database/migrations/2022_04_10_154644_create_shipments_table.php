@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('num');
+            $table->string('tracking_num');
             $table->string('status');
             $table->timestamps();
         });

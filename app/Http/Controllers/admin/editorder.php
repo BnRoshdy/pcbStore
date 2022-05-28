@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Session;
 
 class editorder extends Controller
@@ -16,17 +15,13 @@ class editorder extends Controller
 
         return view('admin.edit-order', ['data' => $data]);
     }
-//
-
 
     public function edit(Request $request)
     {
         $pcbid =  session::get('id');
         $order = new Order();
-         $size = $request->get('sizex') * $request->get('sizey');
-
+        $size = $request->get('sizex') * $request->get('sizey');
         Order::where('id', $pcbid )->update(array( 'sizex' => $request->input('sizex') ,'sizey' => $request->input('sizey'),
-            'status' => $request -> input('status'),
             'quantity' => $request -> input('quantity'),
             'design_num' => $request -> input('design_num'),
             'layers' => $request -> input('layers'),
@@ -38,8 +33,8 @@ class editorder extends Controller
             'price' => $size * 5 * $request->input('quantity')
         ));
         $order->update();
-//         return 'done';
-        return redirect('admin-order');
+        return redirect(route('admin.order'));
     }
+
 
 }

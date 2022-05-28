@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
           $table->id();
-          $table->integer('userid');
+          $table->string('userid');
           $table->string('sizex');
           $table->string('sizey');
           $table->integer('design_num');
@@ -29,7 +29,10 @@ return new class extends Migration
           $table->string('price');
           $table->string('status');
           $table->string('file_name');
-          $table->string('created_at');
+          $table->string('promo_code');
+          $table->string('created_at_mon');
+          $table->string('created_at_year');
+
         });
     }
 

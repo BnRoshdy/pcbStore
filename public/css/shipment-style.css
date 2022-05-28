@@ -19,9 +19,9 @@
     z-index: 1;
 }
 
-.logo h2 {
+.logo h2 a{
     color: #FFDB51;
-
+    text-decoration: none;
 }
 
 .fa-bell {
@@ -64,9 +64,19 @@
 .sidebar ul{
     margin-top: 20px;
 }
-
+.sidebar ul li.x1{
+    background: #1abc9c;
+}
+.sidebar ul li.x1 a{
+    width: 100%;
+    text-decoration: none;
+    color: #FFFFff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
 .sidebar ul li{
-    width: 100%; 
+    width: 100%;
     list-style: none;
 }
 
@@ -88,7 +98,7 @@
 }
 
 .sidebar ul li a i{
-    
+
     min-width: 60px;
     font-size: 24px;
     text-align: center;
@@ -175,6 +185,7 @@
 }
 
 .main table, th, td {
+
     border: 1px solid;
     margin: 20px;
 }
@@ -190,7 +201,7 @@
 .main input[type="submit"]{
     align-self: center;
     width: 120px;
-    height: 40px;  
+    height: 40px;
     border: none;
     background-color: #1abc9c;
     color: white;

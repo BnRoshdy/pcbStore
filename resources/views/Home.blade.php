@@ -13,8 +13,9 @@
 
         <a href="/" class="logo_admin">MYPCB</a>
         <div class="cust_data">
-    @if(Auth::check())
+@if(Auth::check())
         <a href="/cart">My Cart</a>
+        <a href="/myorder">My Order</a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">logout</a>
         <form id="logout-form" action="{{ route('logout') }}" method = "POST" >
@@ -50,7 +51,8 @@
         </div>
     </div>
     <div class="navigation">
-        <button class="btn">
+
+        <button class="btn" type="submit" >
           @if(Auth::check())
             <a  href="/order" class="order-btn">order now</a>
           @else

@@ -21,33 +21,30 @@
 </style>
 <script type="text/javascript">
     @foreach($data as $s)
-        window.onload = function() {
-        document.getElementById('l'+{{$s->layers}}).checked=true;
-        document.getElementById('n'+{{$s->design_num}}).checked=true;
-        document.getElementById('s'+'{{$s->silkscreen}}').checked=true;
-        document.getElementById('h'+'{{$s->min_hole_size}}').checked=true;
-        document.getElementById('{{$s->min_track}}').checked=true;
-        document.getElementById('{{$s->solder_mask}}').checked=true;
-        document.getElementById('{{$s->stensil}}').checked=true;
-        document.getElementById('quantity').value={{$s->quantity}};
-        document.getElementById('sizex').value={{$s->sizex}};
-        document.getElementById('sizey').value={{$s->sizey}};
-        document.getElementById('{{$s->status}}').checked=true;
-
-
-    };
+    window.onload = function() {
+                document.getElementById('l'+{{$s->layers}}).checked=true;
+                document.getElementById('n'+{{$s->design_num}}).checked=true;
+                document.getElementById('s'+'{{$s->silkscreen}}').checked=true;
+               document.getElementById('h'+'{{$s->min_hole_size}}').checked=true;
+                document.getElementById('{{$s->min_track}}').checked=true;
+                document.getElementById('{{$s->solder_mask}}').checked=true;
+                document.getElementById('{{$s->stensil}}').checked=true;
+                document.getElementById('quantity').value={{$s->quantity}};
+                document.getElementById('sizex').value={{$s->sizex}};
+                document.getElementById('sizey').value={{$s->sizey}};
+        };
     @endforeach
 </script>
     <body>
 
     <header> <!----------------------HEADER------------------------>
-        <a href="/admin-order" class="logo_admin">Admin</a>
+        <a href="{{route('admin.status')}}" class="logo_admin">MYPCB </a>
         <div class="cust_data">
 
         </div>
     </header><!---------------------------------------------------->
     <section>
-        <form action="/edit-order" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.edito')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="container">
                 <div class="row">
@@ -344,27 +341,9 @@
                                         <div class="name">no</div>
                                     </div>
                             </label>
+                        </div>
 
-                            <div class="container" id="checkbox">
-                                <label for="checkbox">Comfirm:</label>
-                                <label class="option_item">
-                                    <input type="radio" name="status" id="confirmed" class="checkbox" value="confirmed" required>
-                                    <div class="option_inner">
-                                        <div class="tickmark"></div>
-                                        <div class="name">comfirmed</div>
-                                    </div>
-                                </label>
-                                <label class="option_item">
-                                    <input type="radio" name="status" id="not confirmed" class="checkbox" value="not confirmed" required>
-                                    <div class="option_inner">
-                                        <div class="tickmark"></div>
-                                        <div class="name">not comfirmed</div>
-                                    </div>
-                                </label>
-                            </div>
-
-
-                            <input type="submit" class="btn btn-success" value="edit">
+                        <input type="submit" class="btn btn-success" value="edit">
 
         </form>
     </section>

@@ -7,16 +7,13 @@
         <title>Forget Password</title>
         <link rel="stylesheet" href="{{url('css/login.css')}}">
         <script src="https://kit.fontawesome.com/2924b03037.js" crossorigin="anonymous"></script>
-
     </head>
     <body>
-
         <header> <!----------------------HEADER------------------------>
             <a href="/" class="logo_admin">MYPCB</a>
             <div class="cust_data">
             </div>
         </header>
-
         <section>
             <div class="flex">
                 <h2>Forget Password</h2>
@@ -42,8 +39,6 @@
                                        </span>
                                 @enderror
                         </div>
-
-
                         <div>
                               <input name="reset" id="reset" class="btn btn-primary btn-user btn-block" type="submit" value="reset">
                         </div>
@@ -75,7 +70,5 @@
             </div>
 
         </footer>
-
-
     </body>
 </html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin-promocode</title>
-    <link rel="stylesheet" href="css/promocode-style.css">
+    <link rel="stylesheet" href="{{url('css/ORDERR1css.css')}}">
     <script src="https://kit.fontawesome.com/2924b03037.js" crossorigin="anonymous"></script>
 
 </head>
@@ -14,58 +14,83 @@
     <!-- ---------------------header----------------------- -->
     <div class="topbar">
         <div class="logo">
-            <h2>BCPWAY Admin</h2>
+            <h2><a href="/">MYPCB</a> </h2>
         </div>
-        <div class="user">
-            <a href="#">home page</a>
+        <div class="cust_data">
+            <a href="{{route('admin.logout')}}" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">logout</a>
+            <form id="logout-form" action="{{route('admin.logout')}}" method = "POST" >
+                @csrf
+            </form>
         </div>
-    </div>
     <!-- -------------------------header-------------------------     -->
     <div class="main">
 
-        <form class="form00" action="/admin-promocode">
-            name: <input type="int" name="price" size="20">
-            discounte: <input type="int" name="price" size="20">
-            quantity: <input type="int" name="price" size="20">
-            max discount: <input type="int" name="price" size="20"><br>
+        <form method="post"  action={{route('admin.promocode')}}>
+            @csrf
+            @if (session()->get('flage')==1)
+                @foreach(session()->get('datas') as $data)
+                    name: <input type="int" name="name" size="20" value="{{$data->name}}">
+                    discounte: <input type="int" name="dis" size="20" value="{{$data->value}}">
+                    quantity: <input type="int" name="quantity" size="20" value="{{$data->num}}">
+                    max discount: <input type="int" name="max" size="20" value="{{$data->max}}"><br>
+                    <input class="favorite"
+                           type="submit"
+                           name="submit"
+                           value="Save">
+                @endforeach
+            @else
+                name: <input type="int" name="name" size="20">
+                discounte: <input type="int" name="dis" size="20">
+                quantity: <input type="int" name="quantity" size="20">
+                max discount: <input type="int" name="max" size="20"><br>
+                <input class="favorite"
+                       type="submit"
+                       name="submit"
+                       value="Add">
             <input class="favorite"
                    type="submit"
-                   value="save">
-            <input class="styled"
+                   name="submit"
+                   value="Edit">
+            <input class="favorite"
                    type="submit"
-                   value="edit">
-            <input class="styled"
-                   type="submit"
-                   value="delete">
-        </form>
-
+                   name="submit"
+                   value="Delete">
+            @endif
         <table>
             <tr>
                 <th></th>
                 <th>Id</th>
                 <th>name</th>
                 <th>num</th>
+                <th>used</th>
                 <th>value</th>
-                <th>min</th>
+                <th>max</th>
                 <th>created-at</th>
                 <th>updated-at</th>
             </tr>
-
+            @foreach($datax as $a)
             <tr>
                 <td>
                     <div>
-                        <input type="radio" id="select" name="radio" value="radio">
+                        <input type="radio" id="select" name="radio" value="{{$a->id}}">
                         <label for="select"></label>
                     </div>
                 </td>
-                <td>NULL</td>
-                <td>NULL</td>
-                <td>NULL</td>
-                <td>NULL</td>
-                <td>NULL</td>
-                <td>NULL</td>
-                <td>NULL</td>
+                <td>{{$a->id}}</td>
+                <td>{{$a->name}}</td>
+                <td>{{$a->num}}</td>
+                <td>{{$a->used}}</td>
+                <td>{{$a->value}}</td>
+                <td>{{$a->max}}</td>
+                <td>{{$a ->created_at}}</td>
+                <td>{{$a ->updated_at}}</td>
+            </tr>
+
+            @endforeach
+        </form>
         </table>
+
     </div>
 
 
@@ -75,25 +100,25 @@
     <div class="sidebar">
         <ul>
             <li>
-                <a href="#">
+                <a href="{{route('admin.status')}}">
                     <i class="fas fa-chart-bar"></i>
                     <div>Status</div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('admin.order')}}">
                     <i class="fas fa-th-large"></i>
                     <div>Orders</div>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('admin.ashipment')}}">
                     <i class="fas fa-hand-holding-usd"></i>
                     <div>Shipment</div>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class ="x1">
+                <a >
                     <i class="fas fa-dollar-sign"></i>
                     <div>PromoCode</div>
                 </a>

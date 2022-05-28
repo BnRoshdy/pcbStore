@@ -13,14 +13,10 @@
     <title>Make Order</title>
 </head>
 <style>
-
     body {
         background-color: #ebefee ;
-
     }
 </style>
-
-
 <body>
 
     <header> <!----------------------HEADER------------------------>
@@ -107,12 +103,12 @@
                 </label>
             </div>
                         <!--SIZE ELEMENT-->
-            <label for="one">Size (single):</label>
+            <label for="option_item">Size :</label>
             <input type="number" name ="sizex" id="size" placeholder="               x in cm" required>
             <input type="number" name ="sizey" id="size" placeholder="               y in cm"required><br>
 
                         <!--QUANTITY ELEMENT-->
-            <label for="o">Quantity (single):</label>
+            <label for="o">Quantity :</label>
             <input type="number" name ="quantity" id="quantity" required><br>
 
                             <!--LAYERS ELEMENT-->
@@ -348,6 +344,8 @@
                     </div>
                 </label>
             </div>
+            <label for="o">    promo code:</label>
+            <input type="text" name ="promo" id="quantity" ><br>
 
             <button type="submit" class="btn btn-success">add to cart</button>
 

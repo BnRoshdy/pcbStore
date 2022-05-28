@@ -19,10 +19,24 @@
     z-index: 1;
 }
 
-.logo h2 {
+.logo h2 a {
     color: #FFDB51;
+    text-decoration: none;
 
 }
+.cust_data a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.1em;
+    padding-left: 30px;
+    float: right;
+}
+
+.cust_data a:hover{
+    color: #FFDB51;
+}
+
 
 .fa-bell {
     justify-self: right;
@@ -55,6 +69,7 @@
     cursor: pointer;
 } */
 
+
 .user{
     position: relative;
     width: 50px;
@@ -84,14 +99,25 @@
     overflow-x: hidden;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.02);
     z-index: 2;
+    left: 0;
 }
-
+.sidebar ul li.x1{
+    background: #1abc9c;
+}
+.sidebar ul li.x1 a{
+    width: 100%;
+    text-decoration: none;
+    color: #FFFFff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
 .sidebar ul{
     margin-top: 20px;
 }
 
 .sidebar ul li{
-    width: 100%; 
+    width: 100%;
     list-style: none;
 }
 
@@ -113,7 +139,7 @@
 }
 
 .sidebar ul li a i{
-    
+
     min-width: 60px;
     font-size: 24px;
     text-align: center;
@@ -179,7 +205,7 @@
 
 .icon-box i{
     font-size: 14px;
-    
+
 }
 
 #card1 .number,#card1 .icon-box i{
@@ -207,7 +233,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    width: 100%;
+    width: 123.2%;
 }
 
 .chart h2{
